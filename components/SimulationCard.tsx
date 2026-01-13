@@ -86,13 +86,13 @@ const SimulationCard: React.FC<SimulationCardProps> = ({ config, globalSettings,
         </div>
       </div>
 
-      {/* Observation Chamber */}
+      {/* Trapping Chamber */}
       <div className={`flex-grow relative bg-black ${isFocused ? 'h-full' : 'aspect-square'}`}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.08)_0%,transparent_75%)] pointer-events-none"></div>
         <Canvas key={resetKey} config={config} globalSettings={globalSettings} onStatsUpdate={handleStats} />
       </div>
 
-      {/* Analytics Panel */}
+      {/* Evil Panel */}
       {!isFocused && (
         <div className="bg-neutral-950 p-5 border-t border-white/5">
           <p className="text-[10px] text-neutral-500 font-medium italic opacity-70 mb-4 line-clamp-2 leading-relaxed">"{config.nuanceDescription}"</p>
@@ -103,7 +103,7 @@ const SimulationCard: React.FC<SimulationCardProps> = ({ config, globalSettings,
               </div>
               <div className="flex items-center gap-1.5 px-2 py-1 bg-red-600/10 rounded-full border border-red-500/20">
                 <div className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></div>
-                <span className="text-[9px] font-black text-red-500 uppercase tracking-widest">TELEMETRY_LIVE</span>
+                <span className="text-[9px] font-black text-red-500 uppercase tracking-widest">TRAPPING_CHAMBER_ACTIVE</span>
               </div>
           </div>
         </div>

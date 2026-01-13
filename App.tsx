@@ -39,7 +39,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-red-600 selection:text-white">
       
-      {/* Advanced Research Header */}
+      {/* Evil Inc. Header */}
       <header className="sticky top-0 z-50 bg-neutral-900/90 backdrop-blur-xl border-b border-white/5 shadow-2xl">
         <div className="max-w-7xl mx-auto px-6 py-3">
           <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6">
@@ -50,21 +50,21 @@ const App: React.FC = () => {
               </div>
               <div>
                 <h1 className="text-xl font-black text-white tracking-tighter uppercase italic">
-                  Kinetic<span className="text-red-600">Lab</span>
+                  THE KINETIC-<span className="text-red-600">INATOR</span>
                 </h1>
                 <div className="flex items-center gap-2">
-                   <span className="text-[9px] text-neutral-500 uppercase font-bold tracking-widest">Research Module 2.5</span>
-                   <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
+                   <span className="text-[9px] text-neutral-500 uppercase font-bold tracking-widest">Doofenshmirtz Evil Inc.</span>
+                   <div className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
                 </div>
               </div>
             </div>
 
             <div className="flex-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-center">
               
-              {/* Speed & Time */}
+              {/* Temporal Control-inator */}
               <div className="space-y-1">
                  <div className="flex justify-between text-[9px] font-black uppercase text-neutral-500">
-                    <span>Temporal</span>
+                    <span>Temporal Delay</span>
                     <span className="text-red-500">{isPlaying ? globalSettings.timeScale.toFixed(2) : 'FROZEN'}</span>
                  </div>
                  <div className="flex items-center gap-2">
@@ -75,39 +75,39 @@ const App: React.FC = () => {
                  </div>
               </div>
 
-              {/* Gravity Vector */}
+              {/* Gravity Angle-inator */}
               <div className="space-y-1">
                  <div className="flex justify-between text-[9px] font-black uppercase text-neutral-500">
-                    <span className="flex items-center gap-1"><Compass size={10}/> Vector Angle</span>
+                    <span className="flex items-center gap-1"><Compass size={10}/> Gravity Direction</span>
                     <span className="text-red-500">{globalSettings.gravityAngle}°</span>
                  </div>
                  <input type="range" min="0" max="360" step="1" value={globalSettings.gravityAngle} onChange={(e) => setGlobalSettings(p => ({...p, gravityAngle: parseInt(e.target.value)}))} className="w-full h-1 bg-neutral-800 rounded-full appearance-none accent-red-600 cursor-pointer"/>
               </div>
 
-              {/* Viscosity / Drag */}
+              {/* The Goo-iness */}
               <div className="space-y-1">
                  <div className="flex justify-between text-[9px] font-black uppercase text-neutral-500">
-                    <span className="flex items-center gap-1"><Wind size={10}/> Viscosity</span>
+                    <span className="flex items-center gap-1"><Wind size={10}/> The Goo-iness</span>
                     <span className="text-red-500">{(globalSettings.viscosity * 100).toFixed(1)}%</span>
                  </div>
                  <input type="range" min="0" max="0.1" step="0.001" value={globalSettings.viscosity} onChange={(e) => setGlobalSettings(p => ({...p, viscosity: parseFloat(e.target.value)}))} className="w-full h-1 bg-neutral-800 rounded-full appearance-none accent-red-600 cursor-pointer"/>
               </div>
 
-              {/* Environment Quick Presets */}
+              {/* Tri-State Presets */}
               <div className="flex flex-col gap-1">
-                <span className="text-[9px] font-black uppercase text-neutral-500 flex items-center gap-1"><Globe size={10}/> Environment</span>
+                <span className="text-[9px] font-black uppercase text-neutral-500 flex items-center gap-1"><Globe size={10}/> Tri-State Area</span>
                 <div className="flex gap-1 bg-neutral-800 rounded-md p-0.5">
                   {[0, 0.2, 1, 2.5].map((g, idx) => (
                     <button key={idx} onClick={() => setEnvironment(g)} className={`flex-1 py-1 text-[8px] font-bold rounded ${globalSettings.gravityMultiplier === g ? 'bg-red-600 text-white' : 'text-neutral-400 hover:text-white'}`}>
-                      {g === 0 ? 'ZERO' : g === 0.2 ? 'MOON' : g === 1 ? 'EARTH' : 'JUPIT'}
+                      {g === 0 ? 'VOID' : g === 0.2 ? 'MOON' : g === 1 ? 'NORMAL' : 'EXTREME'}
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Viz Toggles */}
+              {/* Evil Viz */}
               <div className="flex flex-col gap-1">
-                 <span className="text-[9px] font-black uppercase text-neutral-500 flex items-center gap-1"><Thermometer size={10}/> Visualization</span>
+                 <span className="text-[9px] font-black uppercase text-neutral-500 flex items-center gap-1"><Thermometer size={10}/> Thermal Scan</span>
                  <div className="flex gap-1">
                     <button onClick={() => setGlobalSettings(p => ({...p, useHeatmap: !p.useHeatmap}))} className={`flex-1 py-1 text-[8px] font-bold rounded border transition-all ${globalSettings.useHeatmap ? 'bg-red-600/20 border-red-500 text-red-500' : 'bg-neutral-800 border-transparent text-neutral-500'}`}>HEATMAP</button>
                     <button onClick={() => setGlobalSettings(p => ({...p, enableAudio: !p.enableAudio}))} className={`p-1 flex items-center justify-center rounded border transition-all ${globalSettings.enableAudio ? 'bg-red-600/20 border-red-500 text-red-500' : 'bg-neutral-800 border-transparent text-neutral-500'}`}>
@@ -149,7 +149,7 @@ const App: React.FC = () => {
                   </div>
                   <p className="text-neutral-400 text-sm leading-relaxed italic">"{focusedSim.nuanceDescription}"</p>
                   <div className="space-y-3">
-                     <div className="text-[10px] font-black text-neutral-600 uppercase tracking-widest">Experimental Data</div>
+                     <div className="text-[10px] font-black text-neutral-600 uppercase tracking-widest">Schematic Data</div>
                      <div className="grid grid-cols-2 gap-3">
                         <DataBit label="Friction" value={focusedSim.friction.toFixed(3)} />
                         <DataBit label="Elasticity" value={focusedSim.restitution.toFixed(2)} />
@@ -159,8 +159,8 @@ const App: React.FC = () => {
                   </div>
                 </div>
                 <div className="p-5 bg-red-600/5 rounded-2xl border border-red-500/10">
-                   <div className="text-[10px] font-black text-red-500 uppercase mb-2">Researcher's Log</div>
-                   <div className="text-xs text-neutral-300 leading-relaxed opacity-70">Sub-stepping precision at {globalSettings.precision}x ensures accurate trajectory calculation even at high velocity impacts. Heatmap viz enabled.</div>
+                   <div className="text-[10px] font-black text-red-500 uppercase mb-2">Evil Scientist's Log</div>
+                   <div className="text-xs text-neutral-300 leading-relaxed opacity-70">Curse you, Perry the Platypus! This Kinetic-Inator is almost ready to unleash chaos upon the Tri-State Area. Calibration at {globalSettings.precision}x precision.</div>
                 </div>
               </div>
            </div>
